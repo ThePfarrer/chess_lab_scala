@@ -1,0 +1,5 @@
+package Pieces
+
+class Bishop {
+
+}
