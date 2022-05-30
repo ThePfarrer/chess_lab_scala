@@ -1,31 +1,25 @@
 package Pieces
 
 import lab.chess.Col
-import lab.chess.Col.Col
+import lab.chess.Col.{Black, Col}
 
 import io.AnsiColor._
 
-abstract class Piece {
+abstract class Piece(color: Col) {
   protected var letterDisplay: Char
-  protected var color: Col
   protected var hasBeenMoved = false
-
-//  def this(color: Col) = {
-//    this()
-//    this.color = color
-//  }
 
   def setHasBeenMoved = hasBeenMoved = true
 
-  def drawLetterDisplay =
+  def drawLetterDisplay() =
     if (color == Col.Black) {
       print(RED)
       print(" " + letterDisplay + " ")
-      print(WHITE)
+      print(BLACK)
     } else {
       print(YELLOW)
       print(" " + letterDisplay + " ")
-      print(WHITE)
+      print(BLACK)
     }
 
   def getCol: Col = color

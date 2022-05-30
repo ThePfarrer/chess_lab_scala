@@ -1,7 +1,9 @@
 package Pieces
 
-class Queen extends Piece {
-  letterDisplay = 'Q'
+import lab.chess.Col.Col
+
+class Queen(color: Col) extends Piece(color) {
+  var letterDisplay = 'Q'
 
   override def movementLegal(dx: Int, dy: Int): Boolean = {
     val (x, y) = (math.abs(dx), math.abs(dy))
