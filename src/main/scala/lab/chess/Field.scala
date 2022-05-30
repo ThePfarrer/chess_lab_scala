@@ -1,24 +1,25 @@
 package lab.chess
 
+import Pieces.Piece
 import lab.chess.Col.Col
 
-class Field {
-  var col: Col
+import scala.io.AnsiColor._
 
-  def this(col: Col) = {
-    this()
-    this.col = col
-  }
+class Field(col: Col) {
+  var piece: Option[Piece] = None
 
   def drawChessField =
     if (col == Col.White) {
-      Console.drawInChessField
+      print(WHITE_B)
+      drawInChessField()
+      print(BLACK_B)
     } else {
-      drawInChessField
+      drawInChessField()
     }
 
-  def drawInChessField =
-    if (piece != null) piece.drawLetterDisplay
-    else print("   ")
+  def drawInChessField() = piece match {
+    case None        => print("   ")
+    case Some(value) => value.drawLetterDisplay()
+  }
 
 }
